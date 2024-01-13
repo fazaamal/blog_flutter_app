@@ -1,6 +1,3 @@
-import 'dart:ffi';
-import 'dart:io';
-
 import '../auth/auth_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -18,6 +15,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageState extends State<LoginPage> {
+
+  // todo - add register option if not registered
 
   @override
   Widget build(BuildContext context) {
