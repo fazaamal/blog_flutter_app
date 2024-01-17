@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../pages//blog_page.dart';
 
 class BlogList extends StatelessWidget {
   const BlogList({super.key});
@@ -16,9 +17,23 @@ class BlogList extends StatelessWidget {
             itemCount: blogs.length,
             itemBuilder: (context, index) {
               return ListTile(
-                leading: Image.network(blogs[index]['imageUrl'], width: 100, fit: BoxFit.cover,),
                 title: Text(blogs[index]['title']),
                 subtitle: Text(blogs[index]['author']),
+                onTap: () {
+
+                  try {
+                    print(blogs[index]['title']+' '+ blogs[index]['content']+ ' '+  blogs[index]['author']);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => BlogPage(blog: Blog(
+                      title: blogs[index]['title'],
+                      content: blogs[index]['content'],
+                      author: blogs[index]['author'],
+                    ))));
+                  } catch (e) {
+                    print(e);
+                  }
+
+                },
+
               );
             },
           );

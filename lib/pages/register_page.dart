@@ -1,14 +1,15 @@
-import 'dart:ffi';
-import 'dart:io';
+// import 'dart:ffi';
+// import 'dart:io';
 
-import '../auth/auth_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+var name = "";
 var username = "";
 var password = "";
 bool isValid = true;
+String error = "";
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -31,7 +32,16 @@ class RegisterPageState extends State<RegisterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text('BlogGram', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+            const Text('Create an Account', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+            const SizedBox(height: 24.0),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Name',
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (value) => name = value,
+
+            ),
             const SizedBox(height: 24.0),
             TextFormField(
               decoration: const InputDecoration(
@@ -50,43 +60,60 @@ class RegisterPageState extends State<RegisterPage> {
               obscureText: true,
               onChanged: (value) => password = value,
             ),
+            !isValid ? Text(error, style: const TextStyle(color: Colors.red)) : const SizedBox(height: 24.0),
             ElevatedButton(
               onPressed: () async {
-                // todo - post to server, return back to login page
-              
-                // final response = await http.get(Uri.parse('http://localhost:3000/users'));
+                try{
+                  if(name == "" || username == "" || password == ""){
+                    setState(() {
+                      isValid = false;
+                      error = "Please fill out all fields";
+                    });
+                    return;
+                  }
 
-                // if(response.statusCode == 200){
-                //   var data = jsonDecode(response.body) as List<dynamic>;
+                  var doesExist = false;
+                  
+                  await http.get(Uri.parse("http://localhost:3000/users")).then((res) => {
+                    for (var user in (jsonDecode(res.body) as List<dynamic>)){
+                      if(user['username'] as String == username){
+                        // Remove the 'return' statement
+                        doesExist = true
+                      }
+                    }
+                  });
 
-                //   var userFound = data.firstWhere(
-                //     (obj) => obj['username'] == username && obj['password'] == password,
-                //     orElse: () => null,
-                //   );
- 
-                //   if (userFound != null) {
-                //     AuthManager().login();
+                  if(doesExist){
+                    setState(() {
+                      isValid = false;
+                      error = "Username already exists";
+                    });
+                    return;
+                  }else{
+                    setState(() {
+                      isValid = true;
+                    });                    
+                  }
 
-                //     print("Valid login"); 
+                  await http.post(
+                    Uri.parse('http://localhost:3000/users'),
+                    headers: <String, String>{
+                      'Content-Type': 'application/json; charset=UTF-8',
+                    },
+                    body: jsonEncode(<String, String>{
+                      'name': name,
+                      'username': username,
+                      'password': password,
+                    }),
+                  );
 
-                //     setState(() {
-                //       isValid = true;
-                //     });
-
-                //     setState(() {
-                //       AuthManager.isLoggedIn = true;
-                //     });
-
-                //     Navigator.pop(context);
-                //     // Proceed with authenticated actions
-                //   } else {
-                //     print("Invalid login");
-                //     setState(() {
-                //       isValid = false;
-                //     });                    // Handle invalid login attempt
-                //   }
-
-                // }
+                  Navigator.pop(context);
+                }catch(e){
+                  setState(() {
+                    isValid = false;
+                    error = "Error connecting to server";
+                  });
+                }
               },
               child: const Text('Register'),
             ),

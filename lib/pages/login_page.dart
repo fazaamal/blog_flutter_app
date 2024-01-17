@@ -2,6 +2,7 @@ import '../auth/auth_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'register_page.dart';
 
 var username = "";
 var password = "";
@@ -30,7 +31,7 @@ class LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text('BlogGram', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+            const Text('BlogGram', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
             const SizedBox(height: 24.0),
             TextFormField(
               decoration: const InputDecoration(
@@ -74,13 +75,12 @@ class LoginPageState extends State<LoginPage> {
 
                     setState(() {
                       isValid = true;
-                    });
-
-                    setState(() {
                       AuthManager.isLoggedIn = true;
+                      AuthManager.username = username;
+                      AuthManager.name = userFound['name'];
                     });
 
-                    Navigator.pop(context);
+                    Navigator.pop(context, { 'success': true, 'username': username, 'name': userFound['name']});
                     // Proceed with authenticated actions
                   } else {
                     print("Invalid login");
@@ -97,6 +97,15 @@ class LoginPageState extends State<LoginPage> {
               },
               child: const Text('Login'),
             ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage()));
+              },
+              child: const Text("Don't have an account?", 
+                style: TextStyle(color: Colors.blueAccent),
+                textAlign: TextAlign.center,
+              ),
+            )
           ],
         ),
       ),

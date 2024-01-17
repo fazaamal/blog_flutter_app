@@ -1,33 +1,48 @@
 {
   "blogs": [
     {
-      "id": 1,
-      "title": "Introduction to JavaScript",
-      "content": "JavaScript is a programming language...",
-      "imageUrl": "https://www.orientsoftware.com/Themes/OrientSoftwareTheme/Content/Images/blog/2021-12-16/what-can-you-do-with-javascript-thumb.jpg",
-      "author": "John Doe"
+      "id": "5f27",
+      "title": "My First Blog!",
+      "content": "123 Testing",
+      "author": "Faza Amal"
     },
     {
-      "id": 2,
-      "title": "Getting Started with React",
-      "content": "React is a JavaScript library...",
-      "imageUrl": "https://miro.medium.com/v2/resize:fit:2000/1*y6C4nSvy2Woe0m7bWEn4BA.png",
-      "author": "Jane Smith"
+      "id": "224e",
+      "title": "My Second Blog",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget ornare sapien, eget posuere neque. Etiam feugiat dapibus tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris bibendum enim vel tortor posuere, eu blandit arcu dignissim. Suspendisse elementum felis neque, et hendrerit ante accumsan ut. Quisque urna neque, vulputate id libero eget, luctus dignissim ipsum. Suspendisse potenti. Aenean at risus quis lacus euismod dignissim vitae id augue. Sed dignissim cursus quam et aliquet. In hac habitasse platea dictumst. Donec volutpat nisi a ultricies egestas. Ut mollis lectus at est aliquam rhoncus. Cras vel purus malesuada, consequat lectus a, condimentum justo. Suspendisse euismod tincidunt accumsan. Nunc vel libero lacus.\n\nSed nec nunc libero. Curabitur quis egestas elit, ut ornare orci. Donec suscipit feugiat volutpat. Vivamus eget dictum augue. Cras efficitur, massa sed tincidunt imperdiet, quam erat porta lorem, sit amet rutrum erat odio rutrum sem. Nulla facilisi. Maecenas ac accumsan velit, nec dapibus ex. Maecenas molestie sed nisl et bibendum. Quisque sodales erat in pretium sollicitudin.\n\nUt feugiat nunc porta maximus pretium. Phasellus viverra eu augue eget cursus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In mollis ut risus sed luctus. Ut erat mauris, mattis sed dapibus non, venenatis ac felis. In molestie, velit at euismod sollicitudin, odio libero molestie urna, ac porttitor purus quam vitae turpis. In lacinia in neque ut venenatis. Aliquam imperdiet rutrum laoreet. Nulla tristique justo eget feugiat placerat. Pellentesque at leo finibus ipsum efficitur vestibulum. Vestibulum at est ligula. Curabitur scelerisque tellus non euismod mollis.\n\nCras quis ante justo. Sed et orci sed eros sodales iaculis vitae sit amet urna. Nunc scelerisque dui sed quam pulvinar, vel hendrerit sem placerat. Fusce ornare nisl lacus, nec imperdiet neque auctor eu. Fusce elit turpis, consequat ut felis quis, porttitor rhoncus magna. Vestibulum et sapien non dolor viverra venenatis ac dapibus libero. Nunc dui risus, eleifend a convallis eget, convallis nec leo. Nullam vestibulum tincidunt elit. Proin vitae magna non leo gravida luctus ut eget nisi. Morbi volutpat gravida lectus, a varius elit facilisis elementum. Praesent ut justo eget nunc pulvinar consequat ac quis justo. Sed imperdiet velit vitae nunc placerat, in varius ante mollis.\n\nProin a molestie massa. Ut quis efficitur metus. Donec blandit pellentesque odio, ut congue nunc placerat sed. Quisque diam diam, consequat vel est commodo, cursus feugiat elit. Sed vitae scelerisque est. Suspendisse non nisi sem. Phasellus malesuada aliquet ante, eu facilisis metus lobortis ullamcorper. Nunc sit amet diam ac ex auctor ornare. In interdum nulla vitae suscipit rutrum. Ut tincidunt elit urna, venenatis cursus nunc auctor vel. Praesent sit amet diam vitae mauris convallis accumsan.\n\n",
+      "author": "Faza Amal"
     },
     {
-      "id": 3,
-      "title": "Python Basics",
-      "content": "Python is an interpreted, high-level programming language...",
-      "imageUrl": "https://miro.medium.com/v2/resize:fit:1400/1*ycIMlwgwicqlO6PcFRA-Iw.png",
-      "author": "Alex Johnson"
+      "id": "d4a3",
+      "title": "My First Blog",
+      "content": "Sajid",
+      "author": "Sajid"
     }
   ],
-  "users" :[
+  "users": [
     {
       "username": "fazaamal",
       "name": "Faza Amal",
-      "password": "123456"
+      "password": "123456",
+      "id": "9227"
+    },
+    {
+      "id": "7c62",
+      "name": "Faza",
+      "username": "fazzyboy642",
+      "password": "!23324ewrew"
+    },
+    {
+      "id": "db65",
+      "name": "Faza",
+      "username": "fazzyboy64",
+      "password": "!23324ewrew"
+    },
+    {
+      "id": "c76c",
+      "name": "Sajid",
+      "username": "sajid12345",
+      "password": "password123"
     }
   ]
-    
 }
