@@ -4,7 +4,9 @@ import 'dart:convert';
 import '../pages//blog_page.dart';
 
 class BlogList extends StatelessWidget {
-  const BlogList({super.key});
+  final String? username;
+
+  const BlogList({super.key, required this.username});
 
   @override
   Widget build( BuildContext context ) {
@@ -27,7 +29,11 @@ class BlogList extends StatelessWidget {
                       title: blogs[index]['title'],
                       content: blogs[index]['content'],
                       author: blogs[index]['author'],
-                    ))));
+                      id: blogs[index]['id'],
+                      username: blogs[index]['username'],
+                    ),
+                    username: username,
+                    )));
                   } catch (e) {
                     print(e);
                   }

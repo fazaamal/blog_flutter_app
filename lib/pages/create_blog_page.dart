@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 
 class CreateBlogPage extends StatefulWidget {
   final String author;
+  final String username;
 
-  const CreateBlogPage({super.key, required this.author});
+  const CreateBlogPage({super.key, required this.author, required this.username});
 
   @override
   _CreateBlogPageState createState() => _CreateBlogPageState();
@@ -29,6 +30,7 @@ class _CreateBlogPageState extends State<CreateBlogPage> {
         'title': title,
         'content': content,
         'author': widget.author,
+        'username': widget.username
       }),
     );
 

@@ -90,12 +90,12 @@ class MainAppState extends State<MainApp> {
           },
           child: Center(
           child: 
-            refresh ? const CircularProgressIndicator() : const BlogList(),
+            refresh ? const CircularProgressIndicator() : BlogList(username: AuthManager.getUsername()),
         ),)
         ,
         floatingActionButton: AuthManager.isLoggedIn ? FloatingActionButton(
           onPressed: () async {
-            var res = await Navigator.push(context, MaterialPageRoute(builder: (context) => CreateBlogPage(author: AuthManager.getName())));
+            var res = await Navigator.push(context, MaterialPageRoute(builder: (context) => CreateBlogPage(author: AuthManager.getName(), username: AuthManager.getUsername())));
 
             print(res);
             if(res ==true){
